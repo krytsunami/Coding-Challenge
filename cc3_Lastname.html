@@ -27,7 +27,7 @@
 <h2>Enter Full Name</h2>
 <p>Provide your full name (first, middle, last - each separated by a comma):</p>
 <input type="text" id="fullNameInput">
-<button onclick="updateTable()">Update</button>
+<button onclick="addName()">Update</button>
 <br><br>
 <table id="fullNameTable">
   <tr>
@@ -38,7 +38,7 @@
 </table>
 
 <script>
-function updateTable() {
+function addName() {
     const input = document.getElementById("fullNameInput").value.trim();
     if (input) {
         const nameParts = input.split(",");
