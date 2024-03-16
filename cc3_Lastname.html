@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+
+<head>
+
+<title>Adding A Name</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: lightblue;
+    }
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 20px auto;
+        background-color: black;
+        padding: 20px;
+    }
+    .stripe {
+        height: 50px;
+        background-image: linear-gradient(90deg, lightblue 50%, transparent 50%);
+        background-size: 100% 50px;
+    }
+    .stripe:nth-child(odd) {
+        background-position: 0 0;
+    }
+    .stripe:nth-child(even) {
+        background-position: 0 -50px;
+    }
+    .design {
+        width: 50px;
+        height: 50px;
+        background-color: white;
+        border-radius: 50%;
+        position: absolute;
+        top: 10px;
+    }
+    .design.left {
+        left: 10px;
+    }
+    .design.right {
+        right: 10px;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+</style>
+</head>
+<body>
+<h2>Add Name</h2>
+<p>Enter a name (first name, middle name, last name - each separated by a comma):</p>
+<input type="text" id="nameInput">
+<button onclick="addName()">Add</button>
+<br><br>
+<table id="nameTable">
+  <tr>
+    <th>First Name</th>
+    <th>Middle Name</th>
+    <th>Last Name</th>
+  </tr>
+</table>
+
+<script>
+function addName() {
+  
+    var input = document.getElementById("nameInput").value;
+    
+
+    var names = input.split(",");
+    
+
+    var table = document.getElementById("nameTable");
+    var row = table.insertRow(-1);
+    
+
+    for (var i = 0; i < 3; i++) {
+        var cell = row.insertCell(i);
+        cell.innerHTML = names[i] ? names[i].trim() : "";
+    }
+}
+</script>
+</body>
+</html>
