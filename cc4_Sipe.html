@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<head>
+<title>Replace All</title>
+</head>
+<body>
+<h2>Replace All</h2>
+<p id="para">Hello There, And Welcome to Computer Science 3!</p>
+<button onclick="cchange()">Replace</button>
+<p id="parap"></p>
+<script>
+function cchange() {
+    const paraText = document.getElementById("para").textContent;
+    const oldText = prompt("Enter the character or string to be replaced:");
+	if (oldText === null) {
+        return; 
+    } else {
+        const newText = prompt("Enter the new value:");
+        if (newText === null) {
+            return; 
+        } else {
+            const modifiedText = paraText.split(oldText).join(newText);
+            document.getElementById("parap").textContent = modifiedText;
+        }
+    }
+}
+    
+
+</script>
+</body>
+</html>
