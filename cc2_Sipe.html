@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Coding Challenge 2</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: lightseagreen;
+        }
+
+        div {
+            background-color: white;
+            width: 300px;
+            height: 30px;
+            text-align: center;
+            line-height: 30px; /* Center text vertically */
+            margin: 0 auto; /* Center the div horizontally */
+        }
+    </style>
+</head>
+<body>
+    <h1>RGB Color Equivalent</h1>
+
+    <div id="color">
+        rgb(255, 255, 255)
+    </div>
+    <br>
+    Red: <br>
+    <input id="red" type="range" min="0" max="255" value="255" onchange="ccolor();"> <br>
+    Green: <br>
+    <input id="green" type="range" min="0" max="255" value="255" onchange="ccolor();"><br>
+    Blue: <br>
+    <input id="blue" type="range" min="0" max="255" value="255" onchange="ccolor();">
+
+    <script> //add code to change the color and text of the div element
+        function ccolor() {
+            var red = document.getElementById("red").value;
+            var green = document.getElementById("green").value;
+            var blue = document.getElementById("blue").value;
+
+            var colorDiv = document.getElementById("color");
+            colorDiv.style.backgroundColor = "rgb(" + red + "," + green + "," + blue + ")";
+            colorDiv.textContent = "rgb(" + red + "," + green + "," + blue + ")";
+
+           
+            var brightness = Math.sqrt(red * red * 0.299 + green * green * 0.587 + blue * blue * 0.114);
+            if (brightness > 130) {
+                colorDiv.style.color = "black"; 
+            } else {
+                colorDiv.style.color = "white"; 
+            }
+        }
+    </script>
+</body>
+</html>
